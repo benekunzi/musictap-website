@@ -1,0 +1,139 @@
+/* Music Tap — the app's "Song Trail" look: warm sand, ink text, Fredoka, white rounded cards, chunky green 3D buttons. */
+:root {
+  color-scheme: light;
+  --sand: #F4E9DF;
+  --blob: #EADCCD;
+  --ink: #3A2A20;
+  --ink-2: rgba(58, 42, 32, 0.62);
+  --ink-3: rgba(58, 42, 32, 0.45);
+  --white: #FFFFFF;
+  --green: #2FB24C;
+  --green-edge: #1F8A37;
+  --coral: #FF6B5B;
+  --yellow: #F9C23C;
+  --purple: #8E44EC;
+  --blue: #2E6BFF;
+  --gold: #F5B700;
+  --encore: #D6307B;
+  --shadow: 0 6px 14px rgba(59, 41, 31, 0.11);
+  --radius: 28px;
+}
+
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--sand);
+  color: var(--ink);
+  font-family: "Fredoka", ui-rounded, system-ui, sans-serif;
+  font-weight: 500;
+  line-height: 1.45;
+  overflow-x: hidden;
+}
+img { max-width: 100%; display: block; }
+a { color: inherit; }
+
+/* decorative soft circles, like the app's backdrop */
+.blob { position: absolute; border-radius: 50%; background: var(--blob); z-index: -1; pointer-events: none; }
+
+.wrap { width: min(1080px, 100% - 32px); margin-inline: auto; }
+
+/* header */
+.top { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 18px 0; }
+.brand { display: flex; align-items: center; gap: 12px; text-decoration: none; font-weight: 700; font-size: 22px; }
+.brand img { width: 44px; height: 44px; border-radius: 10px; box-shadow: var(--shadow); }
+.nav { display: flex; gap: 6px; background: var(--white); padding: 4px; border-radius: 999px; box-shadow: var(--shadow); }
+.nav a { text-decoration: none; font-weight: 600; font-size: 15px; color: var(--ink-2); padding: 8px 14px; border-radius: 999px; }
+.nav a:hover, .nav a[aria-current="page"] { background: var(--green); color: var(--white); }
+
+/* hero */
+.hero { position: relative; display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 40px; align-items: center; padding: 40px 0 72px; }
+.hero h1 { font-size: clamp(40px, 6vw, 68px); line-height: 1.02; margin: 0 0 18px; font-weight: 700; letter-spacing: -0.5px; }
+.hero h1 em { font-style: normal; color: var(--green); }
+.hero p.lead { font-size: clamp(18px, 2.2vw, 21px); color: var(--ink-2); margin: 0 0 28px; max-width: 30ch; }
+.hero .phone { justify-self: center; width: min(320px, 80vw); transform: rotate(3deg); filter: drop-shadow(0 30px 40px rgba(59, 41, 31, 0.25)); }
+.hero .phone img { border-radius: 36px; }
+
+.cta { display: flex; flex-wrap: wrap; align-items: center; gap: 14px; }
+.btn {
+  display: inline-flex; align-items: center; gap: 10px; text-decoration: none;
+  background: var(--green); color: var(--white); font-weight: 700; font-size: 18px;
+  padding: 0 26px; height: 58px; border-radius: 22px; box-shadow: 0 5px 0 var(--green-edge);
+  transition: transform .15s ease;
+}
+.btn:hover { transform: translateY(-2px); }
+.btn:active { transform: translateY(3px); box-shadow: 0 2px 0 var(--green-edge); }
+.btn.soon { background: var(--white); color: var(--ink); box-shadow: var(--shadow); cursor: default; }
+.btn.soon:hover { transform: none; }
+.note { color: var(--ink-3); font-size: 14px; font-weight: 600; }
+
+/* pills */
+.pills { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 26px; }
+.pill { background: var(--white); border-radius: 999px; padding: 9px 16px; font-weight: 600; font-size: 15px; box-shadow: 0 3px 8px rgba(59, 41, 31, 0.08); }
+.pill b { color: var(--green); }
+
+/* sections */
+section { padding: 56px 0; }
+h2 { font-size: clamp(30px, 4vw, 42px); margin: 0 0 10px; font-weight: 700; line-height: 1.1; }
+.sub { color: var(--ink-2); font-size: 18px; margin: 0 0 32px; max-width: 52ch; }
+
+.grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+.card { background: var(--white); border-radius: var(--radius); padding: 24px; box-shadow: var(--shadow); }
+.card h3 { margin: 14px 0 6px; font-size: 20px; font-weight: 700; }
+.card p { margin: 0; color: var(--ink-2); }
+.icon { width: 48px; height: 48px; border-radius: 50%; display: grid; place-items: center; color: var(--white); }
+.icon svg { width: 24px; height: 24px; }
+
+/* screenshot strip */
+.shots { display: flex; gap: 18px; overflow-x: auto; padding: 8px 4px 22px; scroll-snap-type: x mandatory; scrollbar-width: thin; }
+.shots img { width: 240px; flex: none; border-radius: 26px; box-shadow: var(--shadow); scroll-snap-align: start; }
+
+/* honest band */
+.band { background: var(--ink); color: var(--white); border-radius: 36px; padding: 40px; display: grid; grid-template-columns: 1fr 1fr; gap: 28px; align-items: center; }
+.band h2 { color: var(--white); }
+.band .sub { color: rgba(255, 255, 255, 0.72); margin: 0; }
+.checks { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; }
+.checks li { display: flex; align-items: center; gap: 12px; font-weight: 600; font-size: 19px; }
+.checks li::before { content: ""; width: 30px; height: 30px; flex: none; border-radius: 50%; background: var(--green) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M5 12.6l4.4 4.4L19 7.4' stroke='white' stroke-width='3.4' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / 16px no-repeat; }
+
+/* price card */
+.price { display: grid; grid-template-columns: auto 1fr; gap: 24px; align-items: center; }
+.price .big { font-size: 56px; font-weight: 700; line-height: 1; }
+.price .big small { display: block; font-size: 15px; color: var(--ink-3); font-weight: 600; margin-top: 6px; }
+
+/* legal / support pages */
+.doc { background: var(--white); border-radius: 32px; padding: clamp(24px, 5vw, 48px); box-shadow: var(--shadow); margin: 20px 0 60px; }
+.doc h1 { font-size: clamp(32px, 5vw, 44px); margin: 0 0 6px; font-weight: 700; line-height: 1.1; }
+.doc h2 { font-size: 22px; margin: 30px 0 8px; }
+.doc p, .doc li { color: var(--ink-2); font-size: 17px; }
+.doc .meta { color: var(--ink-3); font-weight: 600; margin: 0 0 24px; }
+.doc a { color: var(--green-edge); font-weight: 600; }
+details { border-top: 1px solid rgba(58, 42, 32, 0.08); padding: 14px 0; }
+details:first-of-type { border-top: 0; }
+summary { cursor: pointer; font-weight: 700; font-size: 18px; color: var(--ink); list-style: none; display: flex; justify-content: space-between; gap: 12px; }
+summary::-webkit-details-marker { display: none; }
+summary::after { content: "+"; color: var(--green); font-size: 24px; line-height: 1; }
+details[open] summary::after { content: "–"; }
+details p { margin: 10px 0 0; }
+
+/* footer */
+footer { padding: 30px 0 46px; color: var(--ink-3); font-weight: 600; font-size: 14px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 14px; }
+footer nav { display: flex; gap: 18px; flex-wrap: wrap; }
+footer a { text-decoration: none; }
+footer a:hover { color: var(--ink); }
+
+@media (max-width: 860px) {
+  .hero { grid-template-columns: 1fr; text-align: center; padding-top: 16px; }
+  .hero p.lead { margin-inline: auto; }
+  .cta, .pills { justify-content: center; }
+  .grid { grid-template-columns: 1fr 1fr; }
+  .band { grid-template-columns: 1fr; padding: 30px 24px; }
+}
+@media (max-width: 560px) {
+  .grid { grid-template-columns: 1fr; }
+  .nav a { padding: 8px 10px; font-size: 14px; }
+  .brand span { display: none; }
+  .price { grid-template-columns: 1fr; text-align: center; }
+  .shots img { width: 200px; }
+}
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .btn { transition: none; } }
