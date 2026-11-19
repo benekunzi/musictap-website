@@ -30,7 +30,7 @@ body {
   line-height: 1.45;
   overflow-x: hidden;
 }
-img { max-width: 100%; display: block; }
+img { max-width: 100%; height: auto; display: block; }  /* height follows width, or the width/height attributes squash it */
 a { color: inherit; }
 
 /* decorative soft circles, like the app's backdrop */
