@@ -1,4 +1,11 @@
 /* Music Tap — the app's "Song Trail" look: warm sand, ink text, Fredoka, white rounded cards, chunky green 3D buttons. */
+/* Fredoka is served from this site (variable font, OFL in assets/fonts): no request to Google Fonts, so no visitor IPs go to Google */
+@font-face {
+  font-family: "Fredoka";
+  src: url("/assets/fonts/Fredoka.ttf") format("truetype");
+  font-weight: 300 700;
+  font-display: swap;
+}
 :root {
   color-scheme: light;
   --sand: #F4E9DF;
